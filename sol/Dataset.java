@@ -1,11 +1,27 @@
 package sol;
 
 import src.IDataset;
+import src.Row;
+
+import java.util.List;
 
 /**
  * A class that implements the IDataset interface,
  * representing a training data set.
  */
 public class Dataset implements IDataset {
-    // TODO: Implement methods declared in IDataset interface!
+    @Override
+    public List<String> getAttributeList() {
+        return null;
+    }
+
+    @Override
+    public List<Row> getDataObjects() {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
 }
