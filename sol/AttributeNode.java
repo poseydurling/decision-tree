@@ -11,9 +11,9 @@ public class AttributeNode implements ITreeNode{
     private List<Edge> edge;
     private String mostCommonClassification;
 
-    public AttributeNode(String attribute, ArrayList<Edge> edge, String mostCommonClassification){
+    public AttributeNode(String attribute, List<Edge> edge, String mostCommonClassification){
         this.attribute = attribute;
-        this.edge = new ArrayList<>();
+        this.edge = edge;
         this.mostCommonClassification = mostCommonClassification;
     }
 
