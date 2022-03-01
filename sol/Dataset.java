@@ -16,7 +16,7 @@ public class Dataset implements IDataset {
     private int counter;
     private String other;
 
-    public Dataset(List<Row> rowObject, List<String> attributeList) {
+    public Dataset( List<String> attributeList, List<Row> rowObject) {
         this.dataObject = rowObject;
         this.attributes = attributeList;
     }
@@ -96,7 +96,7 @@ public class Dataset implements IDataset {
                     individualVal.add(datum);
                 }
             }
-            subsets.add(new Dataset(individualVal, newAttribute));
+            subsets.add(new Dataset(newAttribute, individualVal));
         }
         return subsets;
     }

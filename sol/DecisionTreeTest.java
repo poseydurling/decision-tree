@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
@@ -11,8 +13,12 @@ public class DecisionTreeTest {
     
     // Constructor for DecisionTreeTest tester class - don't need to add anything in here!
     public DecisionTreeTest() {
-        
+
     }
+
+//    @Test public void testTreeGeneration(){
+//        Assert.assertEquals();
+//    }
     
     @Test
     public void testExample() { 
