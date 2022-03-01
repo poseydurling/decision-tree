@@ -13,6 +13,8 @@ import java.util.List;
 public class Dataset implements IDataset {
     private List<Row> dataObject;
     private List<String> attributes;
+    private int counter;
+    private String other;
 
     public Dataset(List<Row> rowObject, List<String> attributeList) {
         this.dataObject = rowObject;
@@ -31,7 +33,7 @@ public class Dataset implements IDataset {
 
     @Override
     public int size() {
-        return 0;
+        return this.dataObject.size();
     }
 
     public List<String> getDistinctVal(String attribute) {
@@ -43,6 +45,36 @@ public class Dataset implements IDataset {
             }
         }
         return val;
+    }
+
+    public String getValue(String attribute){
+        return this.dataObject.get(0).getAttributeValue(attribute);
+    }
+
+    public boolean sameValue(String attribute){
+        boolean result = true;
+        for(Row row : this.dataObject){
+            if (this.dataObject.get(0).getAttributeValue(attribute).equals(row.getAttributeValue(attribute))) {
+                this.counter++;
+            } else{
+                result = false;
+                this.other = row.getAttributeValue(attribute);
+            }
+        }
+        return result;
+    }
+
+    public String randomTargetAttribute(){
+        int num = (int)(Math.random()*(this.attributes.size() + 1));
+        return this.attributes.get(num);
+    }
+
+    public String getDefault(String attribute){
+        if(this.counter / 2 > this.size()){
+            return this.dataObject.get(0).getAttributeValue(attribute);
+        } else{
+            return this.other;
+        }
     }
 
     //method that removes string
@@ -63,7 +95,6 @@ public class Dataset implements IDataset {
                 if (datum.getAttributeValue(attribute).equals(eachVal)){
                     individualVal.add(datum);
                 }
-
             }
             subsets.add(new Dataset(individualVal, newAttribute));
         }

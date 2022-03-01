@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Homework2TestSuite.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #ffdaff;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #ffafc7;}
+.s3 { color: #ff3a75;}
+.s4 { color: #cc7832;}
+.s5 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Homework2TestSuite.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">sol</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">org.junit.Assert</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org.junit.Before</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org.junit.Test</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Homework2TestSuite {</span>
+    <span class="s0">public </span><span class="s1">Homework2TestSuite(){}</span>
+
+    <span class="s1">MutableList&lt;Integer&gt; myList</span><span class="s2">;</span>
+
+    <span class="s1">@Before</span>
+    <span class="s0">public void </span><span class="s1">setupData() {</span>
+        <span class="s0">this</span><span class="s1">.myList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.addFirst(</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.addLast(</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.addLast(</span><span class="s3">3</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.addLast(</span><span class="s3">4</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.addLast(</span><span class="s3">5</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">firstLastTesting(){</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.getFirst().intValue()</span><span class="s4">, </span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.getLast().intValue()</span><span class="s4">, </span><span class="s3">5</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+   <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">getTesting(){</span>
+       <span class="s1">Assert.assertEquals((</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.myList.get(</span><span class="s3">3</span><span class="s1">)</span><span class="s4">, </span><span class="s3">4</span><span class="s1">)</span><span class="s2">;</span>
+       <span class="s1">Assert.assertEquals((</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.myList.get(</span><span class="s3">0</span><span class="s1">)</span><span class="s4">, </span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">removeTesting(){</span>
+        <span class="s5">//REMOVE DOESN'T WORK</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.remove(</span><span class="s3">1</span><span class="s1">)</span><span class="s4">, </span><span class="s0">true</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.remove(</span><span class="s3">3</span><span class="s1">)</span><span class="s4">, </span><span class="s0">true</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.remove(</span><span class="s3">5</span><span class="s1">)</span><span class="s4">, </span><span class="s0">true</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.remove(</span><span class="s3">10</span><span class="s1">)</span><span class="s4">, </span><span class="s0">false</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s1">MutableList&lt;Integer&gt; emptyList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(emptyList.remove(</span><span class="s3">0</span><span class="s1">)</span><span class="s4">, </span><span class="s0">false</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s1">MutableList&lt;Integer&gt; oneItemList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">oneItemList.addFirst(</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(oneItemList.remove(</span><span class="s3">1</span><span class="s1">)</span><span class="s4">, </span><span class="s0">true</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">sizeTesting(){</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.size()</span><span class="s4">, </span><span class="s3">5</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s1">MutableList&lt;Integer&gt; emptyList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(emptyList.size()</span><span class="s4">, </span><span class="s3">0</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s1">MutableList&lt;Integer&gt; oneItemList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">oneItemList.addFirst(</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(oneItemList.size()</span><span class="s4">, </span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s0">this</span><span class="s1">.myList.remove(</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.size()</span><span class="s4">, </span><span class="s3">4</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">getNodeTesting(){</span>
+        <span class="s5">//GETNODE DOESN'T WORK</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.myList.getNode(</span><span class="s3">3</span><span class="s1">)</span><span class="s4">, </span><span class="s0">this</span><span class="s1">.myList)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">compareTwoLists(IList&lt;Integer&gt; l1</span><span class="s4">, </span><span class="s1">IList&lt;Integer&gt; l2) {</span>
+        <span class="s0">if </span><span class="s1">(l1.size() != l2.size()) {</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i &lt; l1.size()</span><span class="s2">; </span><span class="s1">i++) {</span>
+                <span class="s0">if </span><span class="s1">(!(l1.get(i).equals(l2.get(i)))) {</span>
+                    <span class="s0">return false</span><span class="s2">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s0">return true</span><span class="s2">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">removeNodeTesting(){</span>
+        <span class="s5">//REMOVENODE DOESN'T WORK</span>
+        <span class="s1">MutableList&lt;Integer&gt; removedList = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">removedList.addFirst(</span><span class="s3">1</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">removedList.addLast(</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">removedList.addLast(</span><span class="s3">4</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">removedList.addLast(</span><span class="s3">5</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Node N = </span><span class="s0">this</span><span class="s1">.myList.getNode(</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.myList.removeNode(N)</span><span class="s2">;</span>
+        <span class="s1">Assert.assertEquals(</span><span class="s0">this</span><span class="s1">.compareTwoLists(</span><span class="s0">this</span><span class="s1">.myList</span><span class="s4">, </span><span class="s1">removedList)</span><span class="s4">, </span><span class="s0">true</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">testDoubleRemove(){</span>
+        <span class="s1">MutableList&lt;Integer&gt; M = </span><span class="s0">new </span><span class="s1">MutableList&lt;Integer&gt;()</span><span class="s2">;</span>
+        <span class="s1">M.addFirst(</span><span class="s3">5</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">M.addLast(</span><span class="s3">8</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">M.addLast(</span><span class="s3">2</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">Node N = M.getNode(</span><span class="s3">8</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">M.removeNode(N)</span><span class="s2">;</span>
+        <span class="s1">M.removeNode(N)</span><span class="s2">;</span>
+        <span class="s5">// ideas: change the getNode line by directly accessing M instead of accessing it through N</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
